@@ -1,11 +1,12 @@
 cl = console.log
 Template.body.helpers
   로그인상태: -> if SessionStore.get('사용자키')? then true else false
-  글목록: -> Board.find()
+  글목록: -> Board.find({}, {sort: 작성시간: -1})
 
 Template.body.events
   'click #작성': (evt, tmpl) ->
     Board.insert
+      작성시간: new Date()
       작성자정보: User.findOne _id: SessionStore.get '사용자키'
       제목: $('#제목').val()
       본문: $('#본문').val()
