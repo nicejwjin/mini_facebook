@@ -43,6 +43,6 @@ Template.body.events
 
   'click #로그아웃': (evt, tmpl) ->
     evt.preventDefault()
-    SessionStore.set '사용자키', undefined
+    SessionStore.set '사용자키', null
 
 
