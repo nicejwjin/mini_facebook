@@ -1,3 +1,4 @@
-User = new Mongo.Collection 'user'
-Board = new Mongo.Collection 'board'
-Comment = new Mongo.Collection 'comment'
+this.User = new Mongo.Collection 'user'
+this.Board = new Mongo.Collection 'board'
+this.Comment = new Mongo.Collection 'comment'
+
