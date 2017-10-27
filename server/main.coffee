@@ -14,3 +14,12 @@ HTTP.methods
 
   '/param/:param1': ->
     return this.params.param1
+
+
+
+Meteor.methods
+  'getBoard': (data) ->
+    console.log data
+    return Board.find().fetch()
+
+

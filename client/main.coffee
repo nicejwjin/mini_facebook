@@ -21,6 +21,11 @@ Template.body.events
       작성자정보: User.findOne _id: SessionStore.get '사용자키'
       제목: $('#제목').val()
       본문: $('#본문').val()
+
+    #methods call test code
+    Meteor.call 'getBoard', {test: 'test data'}, (err, rslt) ->
+      console.log err?.toString() or rslt
+
     $('#제목').val('')
     $('#본문').val('')
   'click #로그인': (evt, tmpl) ->
