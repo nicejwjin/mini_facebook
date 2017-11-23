@@ -1,6 +1,7 @@
 cl = console.log
 
 Template.body.onCreated ->
+  @subscribe 'users'
   @subscribe 'boards'
   @subscribe 'comments'
 #  @subscribe 'mainPage'    #multi sub

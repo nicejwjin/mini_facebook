@@ -1,3 +1,5 @@
+Meteor.publish 'users', ->
+  return Meteor.users.find()
 
 Meteor.publish 'boards', ->
   return Board.find({}, {sort: {작성시간: -1}, limit: 5})
