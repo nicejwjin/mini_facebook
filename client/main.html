@@ -18,7 +18,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <form class="navbar-form navbar-right" role="form">
-        {{#if 로그인상태}}
+        {{#if currentUser}}
           <button id="로그아웃" type="submit" class="btn btn-success">Sign out</button>
         {{else}}
           <div class="form-group">
@@ -40,7 +40,7 @@
   <div class="container">
     <h1>Hello, world!</h1>
     <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    {{#if 로그인상태}}
+    {{#if currentUser}}
       <input id="제목" type="text" class="form-control" placeholder="제목">
       <textarea id="본문" class="form-control" rows="3" placeholder="본문"></textarea>
 
@@ -59,7 +59,7 @@
         {{#each 댓글들}}
           <p>@{{작성자정보.이메일}} / {{댓글}} </p>
         {{/each}}
-        {{#if 로그인상태}}
+        {{#if currentUser}}
           <input name="댓글입력" id="{{_id}}" type="text" class="form-control">
         {{/if}}
       </div>

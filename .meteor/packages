@@ -24,3 +24,4 @@ mrt:bootstrap-3
 session@1.1.7
 smeevil:session-store
 cfs:http-methods
+accounts-password
