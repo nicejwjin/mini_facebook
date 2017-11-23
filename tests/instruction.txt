@@ -17,3 +17,6 @@ node main.js
 (forever 이용 구동 시)
 npm install -g forever
 forever main.js
+
+#윈도우 장애시 대처방법
+npm install -g windows-build-tools
