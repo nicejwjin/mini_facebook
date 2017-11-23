@@ -5,9 +5,9 @@ Template.body.helpers
   댓글들: -> Comment.find({소속글키: this._id})
 
 Template.body.events
-  'keyup #댓글입력': (evt, tmpl) ->
+  'keyup [name=댓글입력]': (evt, tmpl) ->
     if evt.which is 13
-      댓글 = $('#댓글입력').val()
+      댓글 = $('#'+this._id).val()
       if 댓글.length <= 0 then return alert '댓글을 입력 해 주세요.'
       Comment.insert
         작성자정보: User.findOne _id: SessionStore.get '사용자키'

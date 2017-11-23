@@ -60,7 +60,7 @@
           <p>@{{작성자정보.이메일}} / {{댓글}} </p>
         {{/each}}
         {{#if 로그인상태}}
-          <input id="댓글입력" type="text" class="form-control">
+          <input name="댓글입력" id="{{_id}}" type="text" class="form-control">
         {{/if}}
       </div>
     {{/each}}
