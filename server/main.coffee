@@ -19,7 +19,6 @@ HTTP.methods
 
 Meteor.methods
   'getBoard': (data) ->
-    console.log data
     return Board.find().fetch()
 
 

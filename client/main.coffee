@@ -1,7 +1,6 @@
 cl = console.log
 
 Template.body.onCreated ->
-  @subscribe 'users'
   @subscribe 'boards'
   @subscribe 'comments'
 #  @subscribe 'mainPage'    #multi sub
@@ -10,14 +9,17 @@ Template.body.helpers
 #  로그인상태: -> if SessionStore.get('사용자키')? then true else false
   글목록: -> Board.find({}, {sort: 작성시간: -1})
   댓글들: -> Comment.find({소속글키: this._id})
+  작성자명: (userId) -> Meteor.users.findOne(_id: userId).username
+
 
 Template.body.events
   'keyup [name=댓글입력]': (evt, tmpl) ->
     if evt.which is 13
       댓글 = $('#'+this._id).val()
       if 댓글.length <= 0 then return alert '댓글을 입력 해 주세요.'
+      cl Meteor.user()
       Comment.insert
-        작성자정보: User.findOne _id: SessionStore.get '사용자키'
+        작성자정보: Meteor.user()._id
         소속글키: this._id
         댓글: 댓글
       $('#댓글입력').val('')
@@ -25,7 +27,7 @@ Template.body.events
   'click #작성': (evt, tmpl) ->
     Board.insert
       작성시간: new Date()
-      작성자정보: User.findOne _id: SessionStore.get '사용자키'
+      작성자정보: Meteor.user()._id
       제목: $('#제목').val()
       본문: $('#본문').val()
 
