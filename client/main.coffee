@@ -1,4 +1,10 @@
 cl = console.log
+
+Template.body.onCreated ->
+  @subscribe 'users'
+  @subscribe 'boards'
+  @subscribe 'comments'
+
 Template.body.helpers
   로그인상태: -> if SessionStore.get('사용자키')? then true else false
   글목록: -> Board.find({}, {sort: 작성시간: -1})
