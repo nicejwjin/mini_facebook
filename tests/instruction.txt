@@ -1,0 +1,19 @@
+#몽고디비 설치 및 실행
+mongod.exe --dbpath ./db
+
+#미티어 프로젝트 빌드
+meteor build ../경로
+directory_name.tar.gz 압축해제
+bundle 디렉토리 내부에서
+bundle/program/server 디렉토리 이동
+npm install
+세가지 환경변수 설정 (리눅스 머신에서는 export)
+set MONGO_URL=mongodb://localhost:27017
+set PORT=5000
+set ROOT_URL=http://someurl.com
+
+node main.js
+
+(forever 이용 구동 시)
+npm install -g forever
+forever main.js
