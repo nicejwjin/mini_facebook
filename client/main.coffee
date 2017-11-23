@@ -4,6 +4,7 @@ Template.body.onCreated ->
   @subscribe 'users'
   @subscribe 'boards'
   @subscribe 'comments'
+#  @subscribe 'mainPage'    #multi sub
 
 Template.body.helpers
 #  로그인상태: -> if SessionStore.get('사용자키')? then true else false
