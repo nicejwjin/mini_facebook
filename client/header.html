@@ -1,0 +1,31 @@
+<template name="header">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right" role="form">
+                    {{#if currentUser}}
+                        <button id="로그아웃" type="submit" class="btn btn-success">Sign out</button>
+                    {{else}}
+                        <div class="form-group">
+                            <input id="이메일" type="text" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input id="비밀번호" type="password" placeholder="Password" class="form-control">
+                        </div>
+                        <button id="로그인" type="submit" class="btn btn-success">Sign In</button>
+                    {{/if}}
+
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </div>
+</template>
