@@ -1,19 +1,19 @@
 cl = console.log
 
-Template.body.onCreated ->
+Template.main.onCreated ->
   @subscribe 'users'
   @subscribe 'boards'
   @subscribe 'comments'
 #  @subscribe 'mainPage'    #multi sub
 
-Template.body.helpers
+Template.main.helpers
 #  로그인상태: -> if SessionStore.get('사용자키')? then true else false
   글목록: -> Board.find({}, {sort: 작성시간: -1})
   댓글들: -> Comment.find({소속글키: this._id})
   작성자명: (userId) -> Meteor.users.findOne(_id: userId).username
 
 
-Template.body.events
+Template.main.events
   'keyup [name=댓글입력]': (evt, tmpl) ->
     if evt.which is 13
       댓글 = $('#'+this._id).val()
